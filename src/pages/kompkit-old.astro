@@ -1,0 +1,343 @@
+---
+import "../styles/global.css";
+
+const webCode = `<span class="text-blue-400">import</span> { <span class="text-yellow-400">debounce</span> } <span class="text-blue-400">from</span> <span class="text-green-400">"kompkit-core"</span>;
+
+<span class="text-blue-400">const</span> <span class="text-yellow-400">search</span> = <span class="text-yellow-400">debounce</span>((<span class="text-orange-400">query</span>) => {
+  <span class="text-yellow-400">console</span>.<span class="text-yellow-400">log</span>(<span class="text-green-400">"Searching:"</span>, <span class="text-orange-400">query</span>);
+}, <span class="text-purple-400">300</span>);`;
+
+const flutterCode = `<span class="text-blue-400">import</span> <span class="text-green-400">'package:kompkit_core/kompkit_core.dart'</span>;
+
+<span class="text-blue-400">final</span> <span class="text-yellow-400">search</span> = <span class="text-yellow-400">debounce</span>((<span class="text-blue-400">String</span> <span class="text-orange-400">query</span>) {
+  <span class="text-yellow-400">print</span>(<span class="text-green-400">'Searching: \$query'</span>);
+}, <span class="text-blue-400">Duration</span>(milliseconds: <span class="text-purple-400">300</span>));`;
+
+const kotlinCode = `<span class="text-blue-400">import</span> <span class="text-yellow-400">com.kompkit.core.*</span>
+
+<span class="text-blue-400">val</span> <span class="text-yellow-400">search</span> = <span class="text-yellow-400">debounce</span>&lt;<span class="text-blue-400">String</span>&gt;(<span class="text-purple-400">300L</span>, <span class="text-orange-400">scope</span>) { <span class="text-orange-400">query</span> ->
+    <span class="text-yellow-400">println</span>(<span class="text-green-400">"Searching: \$query"</span>)
+}`;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KompKit – Cross-Platform Utility Library</title>
+    <meta
+      name="description"
+      content="Lightweight cross-platform utility kit for Web (TypeScript), Android (Kotlin), and Flutter (Dart) development."
+    />
+  </head>
+  <body class="bg-slate-950 text-white font-sans min-h-screen">
+    <!-- Header -->
+    <header class="border-b border-slate-800 px-4 py-6">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <a
+          href="/"
+          class="text-xl font-semibold hover:text-gray-300 transition-colors"
+        >
+          Modulum Studio
+        </a>
+        <div class="flex items-center space-x-6">
+          <span
+            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-500/20 text-orange-300 border border-orange-500/30"
+          >
+            v0.2.0-alpha.0
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="px-4 py-12 md:py-16">
+      <div class="max-w-6xl mx-auto text-center">
+        <h1
+          class="text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight mb-4 md:mb-6"
+        >
+          <span class="text-white">Komp</span><span class="text-blue-400"
+            >Kit</span
+          >
+        </h1>
+        <p
+          class="text-lg md:text-xl lg:text-2xl text-gray-300 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed px-2"
+        >
+          Cross-platform utility library with identical APIs for <strong
+            >Web</strong
+          >, <strong>Android</strong>, and <strong>Flutter</strong>
+        </p>
+        <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-8 md:mb-12">
+          <div
+            class="flex items-center space-x-2 px-4 py-2 bg-slate-800 rounded-lg"
+          >
+            <span class="w-3 h-3 bg-blue-500 rounded-full"></span>
+            <span class="text-sm">TypeScript</span>
+          </div>
+          <div
+            class="flex items-center space-x-2 px-4 py-2 bg-slate-800 rounded-lg"
+          >
+            <span class="w-3 h-3 bg-purple-500 rounded-full"></span>
+            <span class="text-sm">Kotlin</span>
+          </div>
+          <div
+            class="flex items-center space-x-2 px-4 py-2 bg-slate-800 rounded-lg"
+          >
+            <span class="w-3 h-3 bg-cyan-500 rounded-full"></span>
+            <span class="text-sm">Dart</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Install -->
+    <section class="px-4 py-12 md:py-16 bg-slate-900/50">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">
+          Get Started in 30 Seconds
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+          <!-- Web/TypeScript -->
+          <div class="bg-slate-800 rounded-lg p-6 border border-slate-700">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-semibold">Web (npm)</h3>
+              <span class="text-blue-400 text-sm">✅ Published</span>
+            </div>
+            <div class="bg-slate-900 rounded p-4 mb-4">
+              <code class="text-green-400 text-sm">npm i kompkit-core</code>
+            </div>
+            <div class="bg-slate-900 rounded p-4 text-sm h-32 overflow-auto">
+              <pre class="text-gray-300" set:html={webCode} />
+            </div>
+            <a
+              href="https://www.npmjs.com/package/kompkit-core"
+              target="_blank"
+              class="inline-block mt-4 text-blue-400 hover:text-blue-300 text-sm"
+            >
+              View on npm →
+            </a>
+          </div>
+
+          <!-- Flutter/Dart -->
+          <div class="bg-slate-800 rounded-lg p-6 border border-slate-700">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-semibold">Flutter (pub.dev)</h3>
+              <span class="text-cyan-400 text-sm">✅ Published</span>
+            </div>
+            <div class="bg-slate-900 rounded p-4 mb-4">
+              <code class="text-green-400 text-sm"
+                >flutter pub add kompkit_core</code
+              >
+            </div>
+            <div class="bg-slate-900 rounded p-4 text-sm h-32 overflow-auto">
+              <pre class="text-gray-300" set:html={flutterCode} />
+            </div>
+            <a
+              href="https://pub.dev/packages/kompkit_core"
+              target="_blank"
+              class="inline-block mt-4 text-cyan-400 hover:text-cyan-300 text-sm"
+            >
+              View on pub.dev →
+            </a>
+          </div>
+
+          <!-- Android/Kotlin -->
+          <div class="bg-slate-800 rounded-lg p-6 border border-slate-700">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-semibold">Android (Kotlin)</h3>
+              <span class="text-orange-400 text-sm">🚧 Local Only</span>
+            </div>
+            <div class="bg-slate-900 rounded p-4 mb-4 text-xs">
+              <code class="text-gray-400">// Add to settings.gradle.kts</code
+              ><br />
+              <code class="text-green-400">include(":kompkit-core")</code>
+            </div>
+            <div class="bg-slate-900 rounded p-4 text-sm h-32 overflow-auto">
+              <pre class="text-gray-300" set:html={kotlinCode} />
+            </div>
+            <p class="text-gray-400 text-xs mt-4">
+              Maven publishing coming soon
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Features -->
+    <section class="px-4 py-12 md:py-16">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">
+          Core Utilities
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-4"
+            >
+              <span class="text-2xl">🕐</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">debounce</h3>
+            <p class="text-gray-400">
+              Delay function execution to prevent excessive API calls
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4"
+            >
+              <span class="text-2xl">📧</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">isEmail</h3>
+            <p class="text-gray-400">
+              Validate email addresses with robust regex patterns
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-purple-500/20 rounded-lg flex items-center justify-center mx-auto mb-4"
+            >
+              <span class="text-2xl">💰</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">formatCurrency</h3>
+            <p class="text-gray-400">
+              Format numbers as currency with full locale support
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="px-4 py-12 md:py-16 bg-slate-900/50">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">
+          Why KompKit?
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <div class="flex items-start space-x-4">
+            <span class="text-green-400 text-xl">✅</span>
+            <div>
+              <h3 class="font-semibold mb-2">Cross-platform compatibility</h3>
+              <p class="text-gray-400 text-sm">
+                Identical APIs for Web, Android, and Flutter
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <span class="text-green-400 text-xl">✅</span>
+            <div>
+              <h3 class="font-semibold mb-2">Zero dependencies</h3>
+              <p class="text-gray-400 text-sm">
+                Lightweight with no external dependencies
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <span class="text-green-400 text-xl">✅</span>
+            <div>
+              <h3 class="font-semibold mb-2">TypeScript support</h3>
+              <p class="text-gray-400 text-sm">
+                Full type safety and IntelliSense
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <span class="text-green-400 text-xl">✅</span>
+            <div>
+              <h3 class="font-semibold mb-2">100% test coverage</h3>
+              <p class="text-gray-400 text-sm">
+                Comprehensive testing across platforms
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources -->
+    <section class="px-4 py-12 md:py-16">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8">
+          Resources & Links
+        </h2>
+
+        <div
+          class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
+        >
+          <a
+            href="https://github.com/Kompkit/KompKit"
+            target="_blank"
+            class="block p-6 bg-slate-800 rounded-lg border border-slate-700 hover:border-slate-600 transition-colors"
+          >
+            <div class="text-2xl mb-2">📚</div>
+            <h3 class="font-semibold mb-1">GitHub</h3>
+            <p class="text-gray-400 text-sm">Source code & docs</p>
+          </a>
+
+          <a
+            href="https://www.npmjs.com/package/kompkit-core"
+            target="_blank"
+            class="block p-6 bg-slate-800 rounded-lg border border-slate-700 hover:border-slate-600 transition-colors"
+          >
+            <div class="text-2xl mb-2">📦</div>
+            <h3 class="font-semibold mb-1">npm</h3>
+            <p class="text-gray-400 text-sm">Web package</p>
+          </a>
+
+          <a
+            href="https://pub.dev/packages/kompkit_core"
+            target="_blank"
+            class="block p-6 bg-slate-800 rounded-lg border border-slate-700 hover:border-slate-600 transition-colors"
+          >
+            <div class="text-2xl mb-2">🎯</div>
+            <h3 class="font-semibold mb-1">pub.dev</h3>
+            <p class="text-gray-400 text-sm">Flutter package</p>
+          </a>
+
+          <a
+            href="https://github.com/Kompkit/KompKit/discussions"
+            target="_blank"
+            class="block p-6 bg-slate-800 rounded-lg border border-slate-700 hover:border-slate-600 transition-colors"
+          >
+            <div class="text-2xl mb-2">💬</div>
+            <h3 class="font-semibold mb-1">Discussions</h3>
+            <p class="text-gray-400 text-sm">Community support</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 px-4 py-8">
+      <div class="max-w-6xl mx-auto text-center">
+        <p class="text-gray-400 mb-4">
+          <strong>Alpha Notice:</strong> APIs may change before stable release. Pin
+          to specific versions in production.
+        </p>
+        <div class="flex justify-center space-x-6 text-sm">
+          <a href="/" class="text-gray-400 hover:text-white transition-colors"
+            >Home</a
+          >
+          <a
+            href="/privacy"
+            class="text-gray-400 hover:text-white transition-colors">Privacy</a
+          >
+          <a
+            href="https://github.com/Kompkit/KompKit/blob/main/LICENSE"
+            target="_blank"
+            class="text-gray-400 hover:text-white transition-colors"
+            >MIT License</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

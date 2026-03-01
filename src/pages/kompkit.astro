@@ -26,7 +26,7 @@ import "../styles/global.css";
           <span
             class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-500/20 text-orange-300 border border-orange-500/30"
           >
-            v0.3.0-alpha.1
+            v0.4.0-alpha.0
           </span>
         </div>
       </div>
@@ -141,91 +141,124 @@ import "../styles/global.css";
 
     <!-- Utilities Section -->
     <section class="px-4 py-20">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-20">
-          <h2 class="text-4xl md:text-5xl font-bold mb-6">
-            Essential Utilities
-          </h2>
-          <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-            Three core functions that work identically across all platforms
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">Utilities</h2>
+          <p class="text-lg text-gray-400">
+            Five functions. All platforms. Same behavior.
           </p>
         </div>
 
-        <div class="grid lg:grid-cols-3 gap-8">
+        <div class="space-y-3">
           <!-- debounce -->
           <div
-            class="group bg-gradient-to-br from-slate-800/60 to-slate-900/40 rounded-3xl p-10 border border-slate-700/50 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300"
+            class="group flex items-center gap-6 px-6 py-5 bg-slate-800/40 rounded-xl border border-slate-700/40 hover:border-blue-500/40 hover:bg-slate-800/60 transition-all duration-200"
           >
-            <div
-              class="w-20 h-20 bg-gradient-to-br from-blue-500/30 to-blue-600/20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"
-            >
-              <span class="text-4xl">⏱️</span>
+            <div class="w-1 h-10 bg-blue-500 rounded-full flex-shrink-0"></div>
+            <div class="w-40 flex-shrink-0">
+              <code class="text-blue-300 font-mono font-semibold text-lg"
+                >debounce</code
+              >
             </div>
-            <h3 class="text-3xl font-bold mb-4 text-blue-300">debounce</h3>
-            <p class="text-gray-300 mb-8 text-lg leading-relaxed">
-              Delay function execution until after wait period ends
-            </p>
-            <div class="space-y-3">
-              <div class="flex items-center text-gray-400">
-                <div class="w-1.5 h-1.5 bg-blue-400 rounded-full mr-4"></div>
-                <span class="text-sm">Cancel support included</span>
-              </div>
-              <div class="flex items-center text-gray-400">
-                <div class="w-1.5 h-1.5 bg-blue-400 rounded-full mr-4"></div>
-                <span class="text-sm">Prevents excessive API calls</span>
-              </div>
+            <div class="flex-1 text-gray-300 text-sm leading-relaxed">
+              Delays execution until after a wait period — prevents excessive
+              calls on fast inputs
+            </div>
+            <div class="hidden md:flex items-center gap-3 flex-shrink-0">
+              <span
+                class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded border border-blue-500/20 font-mono"
+                >cancel()</span
+              >
             </div>
           </div>
 
           <!-- isEmail -->
           <div
-            class="group bg-gradient-to-br from-slate-800/60 to-slate-900/40 rounded-3xl p-10 border border-slate-700/50 hover:border-green-500/30 hover:shadow-2xl hover:shadow-green-500/10 transition-all duration-300"
+            class="group flex items-center gap-6 px-6 py-5 bg-slate-800/40 rounded-xl border border-slate-700/40 hover:border-green-500/40 hover:bg-slate-800/60 transition-all duration-200"
           >
-            <div
-              class="w-20 h-20 bg-gradient-to-br from-green-500/30 to-green-600/20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"
-            >
-              <span class="text-4xl">✉️</span>
+            <div class="w-1 h-10 bg-green-500 rounded-full flex-shrink-0"></div>
+            <div class="w-40 flex-shrink-0">
+              <code class="text-green-300 font-mono font-semibold text-lg"
+                >isEmail</code
+              >
             </div>
-            <h3 class="text-3xl font-bold mb-4 text-green-300">isEmail</h3>
-            <p class="text-gray-300 mb-8 text-lg leading-relaxed">
-              Validate email addresses with robust regex patterns
-            </p>
-            <div class="space-y-3">
-              <div class="flex items-center text-gray-400">
-                <div class="w-1.5 h-1.5 bg-green-400 rounded-full mr-4"></div>
-                <span class="text-sm">RFC-compliant validation</span>
-              </div>
-              <div class="flex items-center text-gray-400">
-                <div class="w-1.5 h-1.5 bg-green-400 rounded-full mr-4"></div>
-                <span class="text-sm">Handles edge cases</span>
-              </div>
+            <div class="flex-1 text-gray-300 text-sm leading-relaxed">
+              Validates email addresses using RFC-compliant regex — handles edge
+              cases across all platforms
+            </div>
+            <div class="hidden md:flex items-center gap-3 flex-shrink-0">
+              <span
+                class="px-2 py-0.5 bg-green-500/10 text-green-400 text-xs rounded border border-green-500/20 font-mono"
+                >→ boolean</span
+              >
             </div>
           </div>
 
           <!-- formatCurrency -->
           <div
-            class="group bg-gradient-to-br from-slate-800/60 to-slate-900/40 rounded-3xl p-10 border border-slate-700/50 hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300"
+            class="group flex items-center gap-6 px-6 py-5 bg-slate-800/40 rounded-xl border border-slate-700/40 hover:border-purple-500/40 hover:bg-slate-800/60 transition-all duration-200"
           >
-            <div
-              class="w-20 h-20 bg-gradient-to-br from-purple-500/30 to-purple-600/20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"
-            >
-              <span class="text-4xl">�</span>
+            <div class="w-1 h-10 bg-purple-500 rounded-full flex-shrink-0">
             </div>
-            <h3 class="text-3xl font-bold mb-4 text-purple-300">
-              formatCurrency
-            </h3>
-            <p class="text-gray-300 mb-8 text-lg leading-relaxed">
-              Format numbers as currency with locale support
-            </p>
-            <div class="space-y-3">
-              <div class="flex items-center text-gray-400">
-                <div class="w-1.5 h-1.5 bg-purple-400 rounded-full mr-4"></div>
-                <span class="text-sm">Default: en-US / USD</span>
-              </div>
-              <div class="flex items-center text-gray-400">
-                <div class="w-1.5 h-1.5 bg-purple-400 rounded-full mr-4"></div>
-                <span class="text-sm">Finite number validation</span>
-              </div>
+            <div class="w-40 flex-shrink-0">
+              <code class="text-purple-300 font-mono font-semibold text-lg"
+                >formatCurrency</code
+              >
+            </div>
+            <div class="flex-1 text-gray-300 text-sm leading-relaxed">
+              Formats a number as currency with full locale support — defaults
+              to en-US / USD
+            </div>
+            <div class="hidden md:flex items-center gap-3 flex-shrink-0">
+              <span
+                class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded border border-purple-500/20 font-mono"
+                >→ string</span
+              >
+            </div>
+          </div>
+
+          <!-- clamp -->
+          <div
+            class="group flex items-center gap-6 px-6 py-5 bg-slate-800/40 rounded-xl border border-slate-700/40 hover:border-orange-500/40 hover:bg-slate-800/60 transition-all duration-200"
+          >
+            <div class="w-1 h-10 bg-orange-500 rounded-full flex-shrink-0">
+            </div>
+            <div class="w-40 flex-shrink-0">
+              <code class="text-orange-300 font-mono font-semibold text-lg"
+                >clamp</code
+              >
+            </div>
+            <div class="flex-1 text-gray-300 text-sm leading-relaxed">
+              Constrains a number within an inclusive [min, max] range — safe
+              and predictable
+            </div>
+            <div class="hidden md:flex items-center gap-3 flex-shrink-0">
+              <span
+                class="px-2 py-0.5 bg-orange-500/10 text-orange-400 text-xs rounded border border-orange-500/20 font-mono"
+                >→ number</span
+              >
+            </div>
+          </div>
+
+          <!-- throttle -->
+          <div
+            class="group flex items-center gap-6 px-6 py-5 bg-slate-800/40 rounded-xl border border-slate-700/40 hover:border-red-500/40 hover:bg-slate-800/60 transition-all duration-200"
+          >
+            <div class="w-1 h-10 bg-red-500 rounded-full flex-shrink-0"></div>
+            <div class="w-40 flex-shrink-0">
+              <code class="text-red-300 font-mono font-semibold text-lg"
+                >throttle</code
+              >
+            </div>
+            <div class="flex-1 text-gray-300 text-sm leading-relaxed">
+              Limits execution to at most once per wait period — ideal for
+              scroll and resize handlers
+            </div>
+            <div class="hidden md:flex items-center gap-3 flex-shrink-0">
+              <span
+                class="px-2 py-0.5 bg-red-500/10 text-red-400 text-xs rounded border border-red-500/20 font-mono"
+                >cancel()</span
+              >
             </div>
           </div>
         </div>
@@ -245,7 +278,7 @@ import "../styles/global.css";
         <div class="grid md:grid-cols-3 gap-8">
           <!-- Web/TypeScript -->
           <div
-            class="bg-gradient-to-br from-slate-800/50 to-slate-800/30 rounded-2xl p-8 border border-slate-700/50 hover:border-blue-500/30 transition-all group"
+            class="bg-gradient-to-br from-slate-800/50 to-slate-800/30 rounded-2xl p-8 border border-slate-700/50 hover:border-blue-500/30 transition-all"
           >
             <div class="flex items-center justify-between mb-6">
               <div
@@ -255,19 +288,16 @@ import "../styles/global.css";
               </div>
               <span
                 class="px-3 py-1 bg-green-500/20 text-green-300 text-xs font-medium rounded-full border border-green-500/30"
+                >✓ Published</span
               >
-                ✓ Published
-              </span>
             </div>
             <h3 class="text-2xl font-bold mb-2">Web</h3>
             <p class="text-gray-400 mb-6">TypeScript / JavaScript</p>
-
             <div class="bg-slate-900/50 rounded-lg p-4 mb-6">
               <code class="text-green-400 text-sm font-mono"
                 >npm install kompkit-core</code
               >
             </div>
-
             <a
               href="https://www.npmjs.com/package/kompkit-core"
               target="_blank"
@@ -279,20 +309,19 @@ import "../styles/global.css";
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-              >
-                <path
+                ><path
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
                   d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                ></path>
-              </svg>
+                ></path></svg
+              >
             </a>
           </div>
 
           <!-- Flutter/Dart -->
           <div
-            class="bg-gradient-to-br from-slate-800/50 to-slate-800/30 rounded-2xl p-8 border border-slate-700/50 hover:border-cyan-500/30 transition-all group"
+            class="bg-gradient-to-br from-slate-800/50 to-slate-800/30 rounded-2xl p-8 border border-slate-700/50 hover:border-cyan-500/30 transition-all"
           >
             <div class="flex items-center justify-between mb-6">
               <div
@@ -302,19 +331,16 @@ import "../styles/global.css";
               </div>
               <span
                 class="px-3 py-1 bg-green-500/20 text-green-300 text-xs font-medium rounded-full border border-green-500/30"
+                >✓ Published</span
               >
-                ✓ Published
-              </span>
             </div>
             <h3 class="text-2xl font-bold mb-2">Flutter</h3>
             <p class="text-gray-400 mb-6">Dart</p>
-
             <div class="bg-slate-900/50 rounded-lg p-4 mb-6">
               <code class="text-green-400 text-sm font-mono"
-                >flutter pub add kompkit_core</code
+                >flutter pub add kompkit_core:^0.4.0-alpha.0</code
               >
             </div>
-
             <a
               href="https://pub.dev/packages/kompkit_core"
               target="_blank"
@@ -326,20 +352,19 @@ import "../styles/global.css";
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-              >
-                <path
+                ><path
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
                   d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                ></path>
-              </svg>
+                ></path></svg
+              >
             </a>
           </div>
 
           <!-- Android/Kotlin -->
           <div
-            class="bg-gradient-to-br from-slate-800/50 to-slate-800/30 rounded-2xl p-8 border border-slate-700/50 hover:border-purple-500/30 transition-all group"
+            class="bg-gradient-to-br from-slate-800/50 to-slate-800/30 rounded-2xl p-8 border border-slate-700/50 hover:border-purple-500/30 transition-all"
           >
             <div class="flex items-center justify-between mb-6">
               <div
@@ -349,19 +374,16 @@ import "../styles/global.css";
               </div>
               <span
                 class="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs font-medium rounded-full border border-orange-500/30"
+                >🚧 Local Only</span
               >
-                🚧 Local Only
-              </span>
             </div>
             <h3 class="text-2xl font-bold mb-2">Android</h3>
             <p class="text-gray-400 mb-6">Kotlin / JVM</p>
-
             <div class="bg-slate-900/50 rounded-lg p-4 mb-4">
               <code class="text-gray-400 text-xs font-mono"
                 >// Local project reference</code
               >
             </div>
-
             <p class="text-gray-500 text-sm">
               Maven Central publishing coming soon
             </p>
@@ -380,7 +402,7 @@ import "../styles/global.css";
         >
           <span class="w-3 h-3 bg-orange-400 rounded-full mr-4 animate-pulse"
           ></span>
-          <span class="font-semibold">Alpha Release - v0.3.0-alpha.1</span>
+          <span class="font-semibold">Alpha Release - v0.4.0-alpha.0</span>
         </div>
 
         <h2

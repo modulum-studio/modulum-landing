@@ -1,7 +1,7 @@
 export type Lang = "en" | "es";
 
 export interface Dictionary {
-  nav: { studio: string; work: string; contact: string; home: string; langLabel: string };
+  nav: { studio: string; work: string; contact: string; home: string; langLabel: string; openMenu: string; closeMenu: string };
   hero: {
     tagline: string;
     sayHello: string;

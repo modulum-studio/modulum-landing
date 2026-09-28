@@ -1,7 +1,7 @@
 import type { Dictionary } from "./types";
 
 export const es: Dictionary = {
-  nav: { studio: "Estudio", work: "Proyectos", contact: "Contacto", home: "Inicio", langLabel: "Idioma" },
+  nav: { studio: "Estudio", work: "Proyectos", contact: "Contacto", home: "Inicio", langLabel: "Idioma", openMenu: "Abrir menú", closeMenu: "Cerrar menú" },
   hero: {
     tagline: "Un laboratorio personal donde construyo software por curiosidad.",
     sayHello: "Saluda",

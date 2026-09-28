@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useLang } from "@/i18n/LanguageProvider";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
+import MobileMenu from "@/components/ui/MobileMenu";
 
 
 export default function MainHeader() {
@@ -44,13 +45,13 @@ export default function MainHeader() {
         <a href="#top" aria-label="Back to top" className="flex items-center gap-3 group mr-2">
           <span className="w-6 h-6 bg-neutral-900 rounded-full transition-transform duration-300 group-hover:scale-110" />
           {!isHeroVisible && (
-            <span className="hidden sm:inline text-sm font-medium text-neutral-900 opacity-0 animate-[fadeIn_600ms_ease-out_forwards]">
+            <span className="text-sm font-medium text-neutral-900 opacity-0 animate-[fadeIn_600ms_ease-out_forwards]">
               Modulum Studio
             </span>
           )}
         </a>
 
-        <nav className="flex items-center gap-4 sm:gap-6" aria-label="Main">
+        <nav className="hidden md:flex items-center gap-6" aria-label="Main">
           {links.map((link) => (
             <a
               key={link.href}
@@ -62,6 +63,13 @@ export default function MainHeader() {
           ))}
           <LanguageSwitcher />
         </nav>
+
+        <MobileMenu
+          links={links.filter((l) => l.href !== "#contact")}
+          cta={{ href: "#contact", label: t.nav.contact }}
+          openLabel={t.nav.openMenu}
+          closeLabel={t.nav.closeMenu}
+        />
       </div>
     </header>
   );

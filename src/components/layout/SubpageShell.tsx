@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import PageBackdrop from "@/components/ui/PageBackdrop";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
+import MobileMenu from "@/components/ui/MobileMenu";
 import { useLang } from "@/i18n/LanguageProvider";
 
 export default function SubpageShell({ children, footer }: { children: ReactNode; footer?: ReactNode }) {
@@ -17,14 +18,20 @@ export default function SubpageShell({ children, footer }: { children: ReactNode
         <div className="flex w-full items-center justify-between px-6 py-4">
           <Link href="/" aria-label="Modulum Studio" className="flex items-center gap-3 group mr-2">
             <span className="w-6 h-6 bg-neutral-900 rounded-full transition-transform duration-300 group-hover:scale-110" />
-            <span className="hidden sm:inline text-sm font-medium text-neutral-900">Modulum Studio</span>
+            <span className="text-sm font-medium text-neutral-900">Modulum Studio</span>
           </Link>
-          <nav className="flex items-center gap-4 sm:gap-6" aria-label="Main">
+          <nav className="hidden md:flex items-center gap-6" aria-label="Main">
             <Link href="/" className="text-sm text-neutral-900 hover:text-neutral-500 transition-colors">
               {t.nav.home}
             </Link>
             <LanguageSwitcher />
           </nav>
+          <MobileMenu
+            links={[{ href: "/", label: t.nav.home }]}
+            cta={{ href: "/#contact", label: t.nav.contact }}
+            openLabel={t.nav.openMenu}
+            closeLabel={t.nav.closeMenu}
+          />
         </div>
       </header>
       <main className="pt-16">{children}</main>

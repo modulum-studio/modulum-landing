@@ -3,9 +3,16 @@ import Link from "next/link";
 import SubpageShell from "@/components/layout/SubpageShell";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Modulum Studio",
-  description: "Privacy Policy for Delyo app by Modulum Studio",
+  title: "Privacy Policy",
+  description: "Privacy Policy for the Delyo app by Modulum Studio.",
   alternates: { canonical: "/privacy" },
+  openGraph: {
+    title: "Privacy Policy | Modulum Studio",
+    description: "Privacy Policy for the Delyo app by Modulum Studio.",
+    url: "/privacy",
+    type: "website",
+    siteName: "Modulum Studio",
+  },
 };
 
 const h2 = "text-2xl font-semibold tracking-tight text-neutral-900 mb-4";

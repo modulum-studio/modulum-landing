@@ -8,7 +8,7 @@ interface GradientCardProps {
 }
 
 const animated = (gradient: string) => ({
-  background: gradient,
+  backgroundImage: gradient,
   backgroundSize: "200% 200%",
   animation: "gradient-rotate 3s ease infinite",
 });

@@ -176,7 +176,7 @@ const ServiceCard = ({ title, description, icon, gradient, delay, onClick }: Ser
           isHovered ? 'opacity-40' : 'opacity-0'
         }`}
         style={{
-          background: gradient,
+          backgroundImage: gradient,
           backgroundSize: '200% 200%',
           animation: 'gradient-rotate 3s ease infinite',
         }}
@@ -188,7 +188,7 @@ const ServiceCard = ({ title, description, icon, gradient, delay, onClick }: Ser
           isHovered ? 'opacity-100' : 'opacity-0'
         }`}
         style={{
-          background: gradient,
+          backgroundImage: gradient,
           backgroundSize: '200% 200%',
           animation: 'gradient-rotate 3s ease infinite',
         }}
@@ -204,7 +204,7 @@ const ServiceCard = ({ title, description, icon, gradient, delay, onClick }: Ser
             isHovered ? 'text-white' : 'text-neutral-700 bg-neutral-50'
           }`}
           style={{
-            background: isHovered ? gradient : undefined,
+            backgroundImage: isHovered ? gradient : undefined,
             backgroundSize: '200% 200%',
             animation: isHovered ? 'gradient-rotate 3s ease infinite, float 3s ease-in-out infinite' : 'none',
           }}
@@ -233,7 +233,7 @@ const ServiceCard = ({ title, description, icon, gradient, delay, onClick }: Ser
 
         {/* Bottom accent line */}
         <div className="mt-6 h-[2px] w-0 group-hover:w-full transition-all duration-500 ease-out rounded-full"
-          style={{ background: gradient, backgroundSize: '200% 200%', animation: 'gradient-rotate 3s ease infinite' }}
+          style={{ backgroundImage: gradient, backgroundSize: '200% 200%', animation: 'gradient-rotate 3s ease infinite' }}
         />
       </div>
     </div>

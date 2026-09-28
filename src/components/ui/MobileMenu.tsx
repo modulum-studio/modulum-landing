@@ -12,9 +12,9 @@ interface MobileMenuProps {
   closeLabel: string;
 }
 
-const ArrowIcon = () => (
-  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+const ChevronIcon = () => (
+  <svg className="w-4 h-4 text-neutral-400 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
@@ -24,11 +24,14 @@ export default function MobileMenu({ links, cta, openLabel, closeLabel }: Mobile
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onResize = () => window.innerWidth >= 768 && setOpen(false);
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);
+    window.addEventListener("resize", onResize);
     return () => {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKey);
+      window.removeEventListener("resize", onResize);
     };
   }, [open]);
 
@@ -48,76 +51,75 @@ export default function MobileMenu({ links, cta, openLabel, closeLabel }: Mobile
     }
   };
 
+  const rowClass =
+    "flex items-center justify-between px-4 py-3.5 rounded-xl text-base font-medium text-neutral-900 hover:bg-neutral-50 active:bg-neutral-100 transition-colors";
+
   return (
     <>
       <button
         type="button"
-        onClick={() => setOpen(true)}
-        aria-label={openLabel}
+        onClick={() => setOpen((v) => !v)}
+        aria-label={open ? closeLabel : openLabel}
         aria-expanded={open}
-        className="md:hidden w-10 h-10 -mr-2 flex flex-col items-center justify-center gap-[5px] rounded-full hover:bg-neutral-100 transition-colors"
+        className="md:hidden relative w-10 h-10 -mr-2 rounded-full hover:bg-neutral-100 transition-colors"
       >
-        <span className="w-5 h-0.5 rounded-full bg-neutral-900" />
-        <span className="w-5 h-0.5 rounded-full bg-neutral-900" />
-        <span className="w-5 h-0.5 rounded-full bg-neutral-900" />
+        <span
+          className={`absolute left-1/2 top-1/2 w-5 h-[1.5px] -ml-2.5 rounded-full bg-neutral-900 transition-transform duration-300 ${
+            open ? "rotate-45" : "-translate-y-[4px]"
+          }`}
+        />
+        <span
+          className={`absolute left-1/2 top-1/2 w-5 h-[1.5px] -ml-2.5 rounded-full bg-neutral-900 transition-transform duration-300 ${
+            open ? "-rotate-45" : "translate-y-[4px]"
+          }`}
+        />
       </button>
 
       {open &&
         createPortal(
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-label={openLabel}
-            className="md:hidden fixed inset-0 z-50 bg-white/98 backdrop-blur-xl flex flex-col items-center justify-center px-6"
-            style={{ animation: "fadeIn 250ms ease-out" }}
-          >
-            <button
-              type="button"
-              onClick={close}
-              aria-label={closeLabel}
-              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-neutral-100 hover:bg-neutral-200 flex items-center justify-center text-neutral-900 transition-colors"
-            >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
-                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-            </button>
-
-            <nav className="w-full max-w-sm flex flex-col items-center gap-2" aria-label="Mobile">
-              {links.map((link, i) => {
-                const cls =
-                  "w-full text-center text-3xl font-bold tracking-tight text-neutral-900 py-3 rounded-2xl hover:bg-neutral-100 transition-colors opacity-0";
-                const style = { animation: `fadeInUp 500ms cubic-bezier(0.16, 1, 0.3, 1) ${80 + i * 60}ms forwards` };
-                return link.href.startsWith("/") && !link.href.includes("#") ? (
-                  <Link key={link.href} href={link.href} onClick={(e) => navigate(e, link.href)} className={cls} style={style}>
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a key={link.href} href={link.href} onClick={(e) => navigate(e, link.href)} className={cls} style={style}>
-                    {link.label}
-                  </a>
-                );
-              })}
-            </nav>
-
+          <>
             <div
-              className="mt-8 opacity-0"
-              style={{ animation: `fadeInUp 500ms cubic-bezier(0.16, 1, 0.3, 1) ${80 + links.length * 60}ms forwards` }}
+              aria-hidden
+              onClick={close}
+              className="md:hidden fixed inset-0 z-30 bg-neutral-900/10 backdrop-blur-[2px]"
+              style={{ animation: "fadeIn 200ms ease-out" }}
+            />
+            <div
+              role="dialog"
+              aria-label={openLabel}
+              className="md:hidden fixed left-4 right-4 top-[76px] z-40 rounded-2xl border border-neutral-200 bg-white p-2 shadow-xl shadow-neutral-300/40"
+              style={{ animation: "fadeInDown 220ms ease-out" }}
             >
-              <LanguageSwitcher />
-            </div>
+              <nav aria-label="Mobile" className="flex flex-col">
+                {links.map((link) =>
+                  link.href.startsWith("/") && !link.href.includes("#") ? (
+                    <Link key={link.href} href={link.href} onClick={(e) => navigate(e, link.href)} className={rowClass}>
+                      {link.label}
+                      <ChevronIcon />
+                    </Link>
+                  ) : (
+                    <a key={link.href} href={link.href} onClick={(e) => navigate(e, link.href)} className={rowClass}>
+                      {link.label}
+                      <ChevronIcon />
+                    </a>
+                  )
+                )}
+              </nav>
 
-            {cta && (
-              <a
-                href={cta.href}
-                onClick={(e) => navigate(e, cta.href)}
-                className="mt-8 w-full max-w-sm inline-flex items-center justify-center gap-2 py-4 rounded-full bg-neutral-900 text-white font-medium hover:bg-neutral-700 transition-colors opacity-0"
-                style={{ animation: `fadeInUp 500ms cubic-bezier(0.16, 1, 0.3, 1) ${140 + links.length * 60}ms forwards` }}
-              >
-                {cta.label}
-                <ArrowIcon />
-              </a>
-            )}
-          </div>,
+              <div className="mt-2 pt-3 border-t border-neutral-100 flex items-center justify-between gap-3 px-2 pb-1">
+                <LanguageSwitcher />
+                {cta && (
+                  <a
+                    href={cta.href}
+                    onClick={(e) => navigate(e, cta.href)}
+                    className="inline-flex items-center px-5 py-2.5 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-700 transition-colors"
+                  >
+                    {cta.label}
+                  </a>
+                )}
+              </div>
+            </div>
+          </>,
           document.body
         )}
     </>
